@@ -26,14 +26,14 @@
                 {% endif %}
                 {{ text_image }}
             </span>
-            <img class="text-center img-fluid" src="{{pathImage}}">
+            <img class="text-center img-fluid" src="{{pathImage}}" style="max-width: 600px;">
         </div>
         {% endif %}
         {% if text_image == '' %}
         <span class="my-3">
             No se pudo reconocer algun texto dentro de la imagen.
         </span>
-        <img class="text-center img-fluid" src="{{pathImage}}" width="400px">
+        <img class="text-center img-fluid" src="{{pathImage}}" style="max-width: 600px;">
         {% endif %}
     </div>
 
