@@ -19,7 +19,8 @@ def getTextImage(pathImage) -> str:
     img = Image.open(f'.{pathImage}')
     # Acceso a la biblioteca ejecutable de tesseract ocr
     # La cual tiene las funciones de reconocimiento
-    pytesseract.pytesseract.tesseract_cmd = PATH_TESSERACT_CMD
+    pytesseract.pytesseract.tesseract_cmd = "/app/.apt/usr/bin/tesseract"
+    # pytesseract.pytesseract.tesseract_cmd = PATH_TESSERACT_CMD
     # Procesar la imagen para obeneter el texto
     # con la funcion que dispone pytesseract
     text_image = pytesseract.image_to_string(img)
