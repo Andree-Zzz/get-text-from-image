@@ -19,21 +19,17 @@
         </form>
 
         {% if text_image and pathImage %}
-        <div class="my-3 d-flex flex-column align-items-center px-5">
-            <span>
-                {% if text_image == '' %}
-                    No se pudo reconocer texto dentro de la imagen.
-                {% endif %}
-                {{ text_image }}
-            </span>
-            <img class="text-center img-fluid" src="{{pathImage}}" style="max-width: 600px;">
-        </div>
-        {% endif %}
-        {% if text_image == '' %}
-        <span class="my-3">
-            No se pudo reconocer algun texto dentro de la imagen.
-        </span>
-        <img class="text-center img-fluid" src="{{pathImage}}" style="max-width: 600px;">
+            <div class="my-3 d-flex flex-column align-items-center px-5">
+                <span>
+                    {% if text_image == '' %}
+                        No se pudo reconocer texto dentro de la imagen.
+                    {% endif %}
+                    {% if text_image != '' %}
+                        {{ text_image }}
+                    {% endif %}
+                </span>
+                <img class="text-center img-fluid" src="{{pathImage}}" style="max-width: 600px;">
+            </div>
         {% endif %}
     </div>
 

@@ -26,4 +26,4 @@ def procesar_imagen():
     else:
         return redirect(url_for('index'))
 
-# app.run(debug=True)
+# app.run(debug=True) #Comentar para deplieges a Heroku

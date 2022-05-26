@@ -23,5 +23,5 @@ def getTextImage(pathImage) -> str:
     # Procesar la imagen para obeneter el texto
     # con la funcion que dispone pytesseract
     text_image = pytesseract.image_to_string(img)
-    print(f'txt: {text_image}')
+    print(f'txtImg: {text_image}#')
     return text_image
