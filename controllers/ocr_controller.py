@@ -1,4 +1,5 @@
 from datetime import datetime
+from itertools import count
 
 from PIL import Image
 import pytesseract
@@ -22,6 +23,11 @@ def getTextImage(pathImage) -> str:
     pytesseract.pytesseract.tesseract_cmd = PATH_TESSERACT_CMD
     # Procesar la imagen para obeneter el texto
     # con la funcion que dispone pytesseract
-    text_image = pytesseract.image_to_string(img)
-    print(f'txtImg: {text_image}#')
-    return text_image
+    text_image = pytesseract.image_to_string(img, lang='spa').strip()
+    # Remove remove non-ASCII characters but leave periods and spaces
+    text_image = text_image.encode('ascii', errors='ignore').decode() 
+    if len(text_image) == 0:
+        return '*'
+    else:
+        return text_image
+    # print(f'txtImg:{text_image}#')

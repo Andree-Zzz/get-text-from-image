@@ -10,25 +10,23 @@
 <body>
 
     <div class="d-flex flex-column align-items-center justify-content-center" style="height: 100vh;">
-        <h1>Obtener el texto dentro de una imagen</h1>
+        <h1 class="display-5">Obtenen el texto dentro de una imagen</h1>
         <form class="d-flex flex-column align-items-center" action="{{url_for('procesar_imagen')}}" method="POST" enctype="multipart/form-data">
-            <div class="mb-3">
+            <div class="d-flex gap-3 mb-3">
                 <input class="form-control" type="file" accept="image/*" name="imagen">
-              </div>
-            <button class="btn btn-primary" type="submit">Procesar</button>
+                <button class="btn btn-primary" type="submit">Procesar</button>
+            </div>
         </form>
 
-        {% if text_image and pathImage %}
-            <div class="my-3 d-flex flex-column align-items-center px-5">
-                <span>
-                    {% if text_image == '' %}
-                        No se pudo reconocer texto dentro de la imagen.
-                    {% endif %}
-                    {% if text_image != '' %}
-                        {{ text_image }}
-                    {% endif %}
-                </span>
-                <img class="text-center img-fluid" src="{{pathImage}}" style="max-width: 600px;">
+        {% if text_image and  pathImage%}
+        <div class="my-3 d-flex flex-column align-items-center">
+            {% if text_image == '*' %}
+            <span>No se pudo reconocer texto dentro de la imagen.</span>
+            {% endif %}
+            {% if text_image != '*' %}
+            <textarea class="form-control" rows="4">{{text_image}}</textarea>
+            {% endif %}
+            <img class="img-thumbnail mt-3" src="{{pathImage}}" style="max-width: 500px;">
             </div>
         {% endif %}
     </div>
