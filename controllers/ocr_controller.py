@@ -1,5 +1,6 @@
 from datetime import datetime
 from itertools import count
+import os
 
 from PIL import Image
 import pytesseract
@@ -13,6 +14,14 @@ def saveImage(image):
     pathfile = '/static/images/'+code_date+image.filename
     image.save(f'.{pathfile}')
     return pathfile
+
+# Eliminar todos las imagenes almacenadas
+def deleteFiles():
+    for x in os.listdir('static/images'):
+        # No borrar el archivo .gitignore
+        if x != '.gitignore':
+            os.remove(os.path.join('static/images', x))
+    return None
 
 # Obtener el texto de la imagen
 # pidiendo como parametro su ubicacion de guardado

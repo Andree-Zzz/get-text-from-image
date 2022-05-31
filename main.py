@@ -7,12 +7,14 @@ app = Flask(__name__)
 # a procesar
 @app.get("/")
 def index():
+    ocr_controller.deleteFiles()
     return render_template('index.html')
 
 # Pagina que recibe la imagen enviada en el formulario 
 # y hace el respectivo procesamiento.
 @app.post("/")
 def procesar_imagen():
+    ocr_controller.deleteFiles()
     # Obtener la imagen del formulario
     imagen = request.files['imagen']
     # Evaluar si envio una imagen o no dentro del formulario
