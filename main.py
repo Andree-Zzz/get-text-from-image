@@ -8,7 +8,7 @@ app = Flask(__name__)
 @app.get("/")
 def index():
     ocr_controller.deleteFiles()
-    return render_template('index.html')
+    return render_template('form_text_image.html')
 
 # Pagina que recibe la imagen enviada en el formulario 
 # y hace el respectivo procesamiento.
@@ -24,8 +24,9 @@ def procesar_imagen():
         # Procesar la imagen y obtener su texto 
         # recibiendo su ruta de ubicacion (por ahora Funciona con texto en Ingles)
         text_image = ocr_controller.getTextImage(pathImage)
-        return render_template('index.html', text_image = text_image, pathImage = pathImage)
+        return render_template('resp_text_image.html', text_image = text_image, pathImage = pathImage)
     else:
+        # TODO: Feedback seleccionar imagen
         return redirect(url_for('index'))
 
 app.run(debug=True) #Comentar para deplieges a Heroku

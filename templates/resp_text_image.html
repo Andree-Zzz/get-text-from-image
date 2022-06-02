@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}Obtenen el texto dentro de una imagen{% endblock %}
+
+{% block content %}
+
+    <div class="d-flex align-items-center justify-content-center gap-3 container-fluid">
+        <div>
+            {% if text_image == '*' %}
+            <h4>No se pudo reconocer algun texto dentro de la imagen.</h4>
+            {% endif %}
+            {% if text_image != '*' %}
+            <textarea class="form-control" rows="6" cols="50">{{text_image}}</textarea>
+            {% endif %}
+        </div>
+        <div>
+            <img class="img-thumbnail mt-3" src="{{pathImage}}" style="max-width: 550px;">
+        </div>
+    </div>
+
+{% endblock %}
