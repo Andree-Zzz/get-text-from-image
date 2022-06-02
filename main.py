@@ -29,4 +29,4 @@ def procesar_imagen():
         # TODO: Feedback seleccionar imagen
         return redirect(url_for('index'))
 
-# app.run(debug=True) #Comentar para deplieges a Heroku
+app.run(debug=True) #Comentar para deplieges a Heroku

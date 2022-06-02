@@ -3,10 +3,18 @@
 {% block title %}Obtenen el texto dentro de una imagen{% endblock %}
 
 {% block content %}
-    <form class="d-flex flex-column align-items-center" action="{{url_for('procesar_imagen')}}" method="POST" enctype="multipart/form-data">
+<div class="d-flex flex-column align-items-center">
+    <form  action="{{url_for('procesar_imagen')}}" method="POST" enctype="multipart/form-data">
         <div class="d-flex gap-3 mb-3">
-            <input class="form-control" type="file" accept="image/*" name="imagen">
+            <input class="form-control" type="file" accept="image/*" name="imagen" id="imagen">
             <button class="btn btn-primary" type="submit">Procesar</button>
         </div>
     </form>
+    <img id="previewImg"
+        style="max-width: 450px;">
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="static/js/preview-img.js"></script>
 {% endblock %}
